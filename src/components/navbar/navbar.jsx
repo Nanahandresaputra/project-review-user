@@ -13,7 +13,9 @@ const Navbar = () => {
 
   return (
     <section className='navbar bg-sky-500 text-white flex justify-around px-5 fixed top-0'>
-      <h1 className='text-lg font-medium md:text-xl'>Navbar testing</h1>
+      <h1 className='text-lg font-medium md:text-xl lg:text-2xl'>
+        Navbar testing
+      </h1>
       <div className='relative flex flex-col items-center'>
         <BiSolidUserCircle
           className='text-4xl md:text-5xl cursor-pointer'
@@ -23,8 +25,8 @@ const Navbar = () => {
         <div
           className={
             open
-              ? "opacity-100 absolute top-10 top-12 py-2 w-44 flex flex-col items-center bg-sky-500 transition"
-              : "opacity-0  absolute top-10 top-12 py-2 w-44 flex flex-col items-center bg-sky-500 transition"
+              ? "opacity-100 absolute top-10 md:top-12 lg:top-14 py-2 w-44 flex flex-col items-center bg-sky-500 transition md:text-lg"
+              : "opacity-0  absolute top-10 md:top-12 lg:top-14 py-2 w-44 flex flex-col items-center bg-sky-500 transition md:text-lg"
           }
         >
           <p>Login</p>
