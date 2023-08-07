@@ -9,7 +9,7 @@ const InputText = ({ type, label }) => {
       <input
         type={type}
         placeholder={`masukan ${label}`}
-        className='input input-bordered w-full'
+        className='input input-bordered w-full md:text-lg'
       />
     </label>
   );
