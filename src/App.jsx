@@ -7,6 +7,7 @@ import Register from "./pages/register/register";
 import Forum from "./pages/forum/forum";
 import TambahUser from "./pages/tambah-user/tambahUser";
 import Review from "./pages/review/review";
+import Quesioner from "./pages/quesioner/quesioner";
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Forum />} />
-        <Route path='tambah-user' element={<TambahUser />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route path='review' element={<Review />} />
+        <Route path='review/:id' element={<Review />} />
+        <Route path='tambah-user' element={<TambahUser />} />
+        <Route path='quesioner/:id' element={<Quesioner />} />
       </Routes>
     </Router>
   );
