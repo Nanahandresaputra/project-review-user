@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import InputText from "../../components/input-text/inputText";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import userData from "../../data-dummy/user-data/user";
 
 const Login = () => {
   const schemaValidation = yup.object().shape({
@@ -21,7 +22,15 @@ const Login = () => {
   } = useForm({ resolver: yupResolver(schemaValidation) });
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (
+      userData.find(
+        (user) => data.email === user.email && data.password === user.password
+      )
+    ) {
+      console.log("loggin berhasil");
+    } else {
+      ("email atau password salah");
+    }
   };
 
   return (
