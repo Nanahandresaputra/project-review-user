@@ -2,8 +2,9 @@
 
 import { useNavigate } from "react-router-dom";
 import userData from "../../data-dummy/user-data/user";
+import { useState } from "react";
 
-const Table = () => {
+const Table = ({ user }) => {
   const navigate = useNavigate();
 
   return (
@@ -19,7 +20,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {userData.map((item, index) => {
+          {user.map((item, index) => {
             return (
               <tr key={index} className='md:text-base lg:text-lg 2xl:text-xl'>
                 <td className='flex justify-start space-x-2 items-center mx-0 px-0 lg:justify-start lg:space-x-10'>

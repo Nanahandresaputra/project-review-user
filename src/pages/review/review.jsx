@@ -2,7 +2,6 @@
 
 import Reviewer from "../../components/reviewer/reviewer";
 import { useNavigate, useParams } from "react-router-dom";
-import userImg from "../../assets/img-user.jpg";
 import userData from "../../data-dummy/user-data/user";
 
 const Review = () => {
@@ -19,6 +18,7 @@ const Review = () => {
               alt='image user'
               className='rounded-full w-20 md:w-24 2xl:w-28'
             />
+
             <div>
               <h1 className='font-semibold text-lg md:text-xl 2xl:text-3xl'>
                 {userData[id].nama}

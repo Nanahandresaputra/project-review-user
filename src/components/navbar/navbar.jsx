@@ -3,13 +3,21 @@
 import { BiSolidUserCircle } from "react-icons/bi";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     !open ? setOpen(true) : setOpen(false);
+  };
+
+  const navigate = useNavigate();
+  let id = localStorage.getItem("auth");
+
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    navigate("login");
   };
 
   return (
@@ -23,7 +31,7 @@ const Navbar = () => {
           onClick={handleOpen}
         >
           <BiSolidUserCircle className='text-4xl md:text-5xl' />
-          <p className='hidden md:block font-medium md:text-xl lg:text-2xl'>
+          <p className='block md:hidden font-medium md:text-xl lg:text-2xl'>
             User
           </p>
         </div>
@@ -35,8 +43,19 @@ const Navbar = () => {
               : "opacity-0  absolute top-10 md:top-12 lg:top-14 py-2 w-44 flex flex-col items-center bg-sky-500 transition md:text-lg"
           }
         >
-          <Link to='login'>Login</Link>
-          <Link to='register'>Register</Link>
+          <Link to='login' className={id ? "hidden" : "block"}>
+            Login
+          </Link>
+          <Link to='register' className={id ? "hidden" : "block"}>
+            Register
+          </Link>
+          <Link
+            to='login'
+            className={id ? "block" : "hidden"}
+            onClick={() => localStorage.removeItem("auth")}
+          >
+            Logout
+          </Link>
         </div>
       </div>
     </section>

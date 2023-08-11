@@ -1,56 +1,26 @@
 /** @format */
 
-import { useForm } from "react-hook-form";
-import InputText from "../../components/input-text/inputText";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import ilustrationUser from "../../assets/ilustration/adduser.svg";
+import FormAddQuesionare from "./formAddQuesionare";
+import FormAddUser from "./formAddUser";
 
-const Login = () => {
-  const schemaValidation = yup.object().shape({
-    nama: yup.string().required("masukan email"),
-    posisi: yup.string().required("masukan password"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schemaValidation) });
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
+const TambahUser = () => {
   return (
-    <section className='mt-32 md:mt-36 flex flex-col justify-center items-center space-y-3 md:space-y-5'>
-      <h1 className='text-lg font-semibold md:text-xl'>LOGIN</h1>
+    <section className=' flex justify-center items-center mt-32'>
+      <div className='grid grid-cols-1 gap-5 lg:grid-cols-2 lg:w-10/12 2xl:w-9/12'>
+        <div className='order-last'>
+          <FormAddQuesionare />
+        </div>
 
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className='border shadow- p-5 flex flex-col space-y-5 md:w-96'
-      >
-        <InputText
-          label='nama'
-          type='text'
-          register={register}
-          name='nama'
-          errors={errors.nama?.message}
-          errorStyle={errors.nama ? "text-red-500" : "hidden"}
-        />
-        <InputText
-          label='posisi'
-          type='text'
-          register={register}
-          name='posisi'
-          errors={errors.posisi?.message}
-          errorStyle={errors.posisi ? "text-red-500" : "hidden"}
-        />
-        <button type='submit' className='btn btn-info text-white md:text-xl'>
-          LOGIN
-        </button>
-      </form>
+        <div className=' flex flex-col justify-center items-center w-full space-y-8 md:space-y-12 lg:space-y-10'>
+          <h1 className='text-base text-center md:text-start w-72 font-semibold mx-5 md:text-xl md:w-[350px] 2xl:w-[500px] 2xl:text-2xl'>
+            BUAT FORUM PENILAIAN UNTUK KARYAWAN
+          </h1>
+          <FormAddUser />
+        </div>
+      </div>
     </section>
   );
 };
 
-export default Login;
+export default TambahUser;

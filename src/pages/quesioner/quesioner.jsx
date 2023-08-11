@@ -38,34 +38,6 @@ const Quesioner = () => {
               <RadioSelect label='sangat baik' name='question-1' />
             </div>
           </li>
-
-          <li className='text-justify space-y-3 md:text-lg'>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod temp.
-            </span>
-            <div className='flex space-x-2 md:space-x-5'>
-              <RadioSelect label='sangat buruk' name='question-2' />
-              <RadioSelect label='buruk' name='question-2' />
-              <RadioSelect label='sedang' name='question-2' />
-              <RadioSelect label='baik' name='question-2' />
-              <RadioSelect label='sangat baik' name='question-2' />
-            </div>
-          </li>
-
-          <li className='text-justify space-y-3 md:text-lg'>
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod temp.
-            </span>
-            <div className='flex space-x-2 md:space-x-5'>
-              <RadioSelect label='sangat buruk' name='question-3' />
-              <RadioSelect label='buruk' name='question-3' />
-              <RadioSelect label='sedang' name='question-3' />
-              <RadioSelect label='baik' name='question-3' />
-              <RadioSelect label='sangat baik' name='question-3' />
-            </div>
-          </li>
         </ul>
         <button
           type='button'
