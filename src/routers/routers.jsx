@@ -10,6 +10,7 @@ import Quesioner from "../pages/quesioner/quesioner";
 import Navbar from "../components/navbar/navbar";
 import PrivateRouter from "./privateRouter";
 import Group from "../pages/group/group";
+import AddForum from "../pages/add-forum/addForum";
 
 const Routers = () => {
   return (
@@ -17,7 +18,7 @@ const Routers = () => {
       <Navbar />
       <Routes>
         <Route
-          path='/'
+          path='forum'
           element={
             <PrivateRouter>
               <Forum />
@@ -51,7 +52,22 @@ const Routers = () => {
             </PrivateRouter>
           }
         />
-        <Route path='group' element={<Group />} />
+        <Route
+          path='/'
+          element={
+            <PrivateRouter>
+              <Group />
+            </PrivateRouter>
+          }
+        />
+        <Route
+          path='tambah-forum'
+          element={
+            <PrivateRouter>
+              <AddForum />
+            </PrivateRouter>
+          }
+        />
       </Routes>
     </Router>
   );

@@ -5,9 +5,9 @@ import InputText from "../../components/input-text/inputText";
 import { useForm } from "react-hook-form";
 
 const FormAddQuesionare = () => {
+  const { register, handleSubmit } = useForm();
   const [increment, setIncrement] = useState(1);
   const [fields, setFields] = useState([0]);
-  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);

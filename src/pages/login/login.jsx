@@ -36,17 +36,15 @@ const Login = () => {
       alert("login berhasil");
       navigate("/");
     } else {
-      console.log("email atau password salah");
-
       setError("password", {
         type: "manual",
-        message: "email otau password salah",
+        message: "email atau password salah",
       });
     }
   };
 
   return (
-    <section className=' flex justify-center items-center h-screen'>
+    <section className='flex justify-center items-center h-screen'>
       <div className='lg:grid lg:grid-cols-2 lg:w-10/12 2xl:w-9/12'>
         <div className='hidden lg:flex items-center justify-center'>
           <img
