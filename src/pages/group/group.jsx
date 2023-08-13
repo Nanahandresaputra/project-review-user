@@ -15,12 +15,13 @@ const Group = () => {
   }, [dispatch]);
 
   return (
-    <section className=" mt-32 flex justify-center">
+    <section className=" mt-32 flex flex-col space-y-5 md:space-y-8 lg:space-y-10 items-center justify-center">
+      <h1 className="w-10/12 md:w-7/12 text-lg md:text-xl text-center font-semibold">FORUM PENILAIAN KARYAWAN PT CERBERUS SINERGI DATASISTEM</h1>
       <div className="flex justify-center flex-wrap gap-5">
         {forumList?.map((index, i) => (
           <Link to={`forum/${index._id}`} key={i} className="border rounded-lg shadow-lg w-32 h-32 flex flex-col items-center justify-center hover:scale-125 cursor-pointer transition">
             <FaUsers className="text-5xl" />
-            <h1>{index.nama_forum}</h1>
+            <h1 className="text-center">{index.nama_forum}</h1>
           </Link>
         ))}
         <Link to="/tambah-forum" className="border rounded-lg shadow-lg w-32 h-32 flex flex-col items-center justify-center hover:scale-125 hover:cursor-pointer transition">

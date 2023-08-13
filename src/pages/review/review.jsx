@@ -7,6 +7,7 @@ import userData from "../../data-dummy/user-data/user";
 const Review = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  let posisi = localStorage.getItem("namaForum");
 
   return (
     <section className="mt-32 mb-10 flex justify-center">
@@ -17,7 +18,7 @@ const Review = () => {
 
             <div>
               <h1 className="font-semibold text-lg md:text-xl 2xl:text-3xl">{userData[id].nama}</h1>
-              <p className="text-sm text-gray-500 md:text-base 2xl:text-xl">{userData[id].posisi}</p>
+              <p className="text-sm text-gray-500 md:text-base 2xl:text-xl">{userData[id].posisi === "" ? posisi : userData[id].posisi}</p>
               <button className="btn btn-info text-white btn-xs w-32 normal-case md:btn-sm 2xl:w-40 2xl:text-base" onClick={() => navigate(`quesioner/${id}`)}>
                 Berikan review
               </button>

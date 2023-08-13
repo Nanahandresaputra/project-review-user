@@ -5,12 +5,13 @@ import userData from "../../data-dummy/user-data/user";
 
 const Reviewer = ({ user }) => {
   let userId = localStorage.getItem("auth");
+  let posisi = localStorage.getItem("namaForum");
   return (
     <section className="space-y-2">
       <div className="flex items-center space-x-3">
         <img src={userData[userId].role === "manajer" ? user.foto : profilePlaceholer} alt="user reviewer" className="rounded-full object-cover w-10 md:w-14 2xl:w-16" />
         <div>
-          <h1 className="text-sm md:text-base 2xl:text-xl">{userData[userId].role === "manajer" ? `${user.nama}  - ${user.posisi}` : "Anonymus"}</h1>
+          <h1 className="text-sm md:text-base 2xl:text-xl">{userData[userId].role === "manajer" ? `${user.nama}  - ${user.posisi === "" ? posisi : user.posisi}` : "Anonymus"}</h1>
           <p className="text-xs md:text-sm 2xl:text-lg text-gray-500">Hasil Review : 90</p>
         </div>
       </div>
