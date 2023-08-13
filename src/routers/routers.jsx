@@ -18,7 +18,7 @@ const Routers = () => {
       <Navbar />
       <Routes>
         <Route
-          path='forum'
+          path="forum/:id"
           element={
             <PrivateRouter>
               <Forum />
@@ -26,10 +26,10 @@ const Routers = () => {
           }
         />
 
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         <Route
-          path='review/:id'
+          path="forum/:id/review/:id"
           element={
             <PrivateRouter>
               <Review />
@@ -37,7 +37,7 @@ const Routers = () => {
           }
         />
         <Route
-          path='tambah-user'
+          path="tambah-user"
           element={
             <PrivateRouter>
               <TambahUser />
@@ -45,7 +45,7 @@ const Routers = () => {
           }
         />
         <Route
-          path='quesioner/:id'
+          path="forum/:id/review/:id/quesioner/:id"
           element={
             <PrivateRouter>
               <Quesioner />
@@ -53,7 +53,7 @@ const Routers = () => {
           }
         />
         <Route
-          path='/'
+          path="/"
           element={
             <PrivateRouter>
               <Group />
@@ -61,7 +61,7 @@ const Routers = () => {
           }
         />
         <Route
-          path='tambah-forum'
+          path="tambah-forum"
           element={
             <PrivateRouter>
               <AddForum />
