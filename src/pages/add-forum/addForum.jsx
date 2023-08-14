@@ -29,7 +29,6 @@ const AddForum = () => {
     dispatch(addForum(data));
     alert("forum telah ditambahkan");
     navigate("/");
-    console.log(data);
   };
 
   const [increment, setIncrement] = useState(1);
@@ -52,30 +51,58 @@ const AddForum = () => {
   };
 
   return (
-    <section className=" flex justify-center items-center mt-32">
-      <div className="lg:grid lg:grid-cols-2 lg:w-10/12 2xl:w-9/12">
-        <div className="hidden lg:flex items-center justify-center">
-          <img src={ilustrationForum} alt="login image" className="w-[400] h-[500px] 2xl:w-[500px] 2xl:h-[600px]" />
+    <section className='mb-10 flex justify-center items-center mt-32'>
+      <div className='lg:grid lg:grid-cols-2 lg:w-10/12 2xl:w-9/12'>
+        <div className='hidden lg:flex items-center justify-center'>
+          <img
+            src={ilustrationForum}
+            alt='login image'
+            className='w-[400] h-[500px] 2xl:w-[500px] 2xl:h-[600px]'
+          />
         </div>
 
-        <div className=" flex flex-col justify-center items-center space-y-8 md:space-y-12 lg:space-y-10">
-          <h1 className="text-base text-center md:text-start w-72 font-semibold mx-5 md:text-xl md:w-[350px] 2xl:w-[500px] 2xl:text-2xl">BUAT FORUM UNTUK UNTUK PENILAIAN KARYAWAN</h1>
+        <div className=' flex flex-col justify-center items-center space-y-8 md:space-y-12 lg:space-y-10'>
+          <h1 className='text-base text-center md:text-start w-72 font-semibold mx-5 md:text-xl md:w-[350px] 2xl:w-[500px] 2xl:text-2xl'>
+            BUAT FORUM UNTUK UNTUK PENILAIAN KARYAWAN
+          </h1>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="border shadow-lg p-5 flex flex-col space-y-5 md:w-96 2xl:w-[500px] 2xl:py-12">
-            <InputText label="Nama forum" type="text" register={register} name="nama_forum" errors={errors.nama_forum?.message} errorStyle={errors.nama_forum ? "text-red-500" : "hidden"} />
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className='border shadow-lg p-5 flex flex-col space-y-5 md:w-96 2xl:w-[500px] 2xl:py-12'
+          >
+            <InputText
+              label='Nama forum'
+              type='text'
+              register={register}
+              name='nama_forum'
+              errors={errors.nama_forum?.message}
+              errorStyle={errors.nama_forum ? "text-red-500" : "hidden"}
+            />
             <div>
-              <div className="flex justify-between items-center">
-                <h1 className="font-semibold ">Tambah pertanyaan</h1>
-                <button type="button" className="btn btn-info text-white md:text-xl w-32" onClick={handleAdd}>
+              <div className='flex justify-between items-center'>
+                <h1 className='md:text-xl 2xl:text-xl'>Tambah pertanyaan</h1>
+                <button
+                  type='button'
+                  className='btn btn-info btn-sm md:btn-md w-20 text-white md:text-xl md:w-32'
+                  onClick={handleAdd}
+                >
                   +
                 </button>
               </div>
-              <div className="flex space-x-5">
-                <div className="flex flex-col">
+              <div className='flex space-x-5'>
+                <div className='flex flex-col'>
                   {fields?.map((index) => (
-                    <div key={index} className="flex space-x-3 items-center">
-                      <InputText type="text" register={register} name={`pertanyaan${index}`} />
-                      <button type="button" className="btn btn-error text-white md:text-xl" onClick={() => handleRemove(index)}>
+                    <div key={index} className='flex space-x-3 items-center'>
+                      <InputText
+                        type='text'
+                        register={register}
+                        name={`pertanyaan${index}`}
+                      />
+                      <button
+                        type='button'
+                        className='btn btn-error text-white md:text-xl'
+                        onClick={() => handleRemove(index)}
+                      >
                         X
                       </button>
                     </div>
@@ -83,7 +110,10 @@ const AddForum = () => {
                 </div>
               </div>
             </div>
-            <button type="submit" className="btn btn-info text-white md:text-xl">
+            <button
+              type='submit'
+              className='btn btn-info text-white md:text-xl'
+            >
               Tambah Forum
             </button>
           </form>

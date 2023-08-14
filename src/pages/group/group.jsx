@@ -15,16 +15,26 @@ const Group = () => {
   }, [dispatch]);
 
   return (
-    <section className=" mt-32 flex justify-center">
-      <div className="flex justify-center flex-wrap gap-5">
+    <section className='space-y-5 md:space-y-8 mt-32 lg:space-y-12 flex flex-col items-center justify-center'>
+      <h1 className='font-semibold text-lg md:text-xl'>
+        Forum Penilaian Karyawan
+      </h1>
+      <div className='flex justify-center flex-wrap gap-5'>
         {forumList?.map((index, i) => (
-          <Link to={`forum/${index._id}`} key={i} className="border rounded-lg shadow-lg w-32 h-32 flex flex-col items-center justify-center hover:scale-125 cursor-pointer transition">
-            <FaUsers className="text-5xl" />
+          <Link
+            to={`forum/${index._id}`}
+            key={i}
+            className='border rounded-lg shadow-lg w-32 h-32 flex flex-col items-center justify-center hover:scale-125 cursor-pointer transition'
+          >
+            <FaUsers className='text-5xl' />
             <h1>{index.nama_forum}</h1>
           </Link>
         ))}
-        <Link to="/tambah-forum" className="border rounded-lg shadow-lg w-32 h-32 flex flex-col items-center justify-center hover:scale-125 hover:cursor-pointer transition">
-          <FaPlus className="text-5xl" />
+        <Link
+          to='/tambah-forum'
+          className='border rounded-lg shadow-lg w-32 h-32 flex flex-col items-center justify-center hover:scale-125 hover:cursor-pointer transition'
+        >
+          <FaPlus className='text-5xl' />
           <h1>Tambah Forum</h1>
         </Link>
       </div>
