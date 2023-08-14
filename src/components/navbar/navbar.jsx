@@ -3,7 +3,8 @@
 import { BiSolidUserCircle } from "react-icons/bi";
 
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { TfiArrowCircleLeft } from "react-icons/tfi";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,14 +15,16 @@ const Navbar = () => {
 
   let id = localStorage.getItem("auth");
 
-  const { idx } = useParams();
-  console.log(idx);
+  const navigate = useNavigate();
 
   return (
     <section className="navbar bg-sky-500 text-white flex justify-around px-5 fixed top-0 z-20">
-      <Link to="/" className=" font-medium md:text-xl lg:text-2xl">
-        PT CERBERUS SINERGI DATASISTEM
-      </Link>
+      <div className="flex items-center space-x-5">
+        <TfiArrowCircleLeft className="hidden lg:block text-3xl hover:cursor-pointer active:scale-125 transition" onClick={() => navigate(-1)} />
+        <Link to="/" className=" font-medium md:text-xl lg:text-2xl">
+          PT CERBERUS SINERGI DATASISTEM
+        </Link>
+      </div>
       <div className="relative flex flex-col items-center">
         <div className="flex space-x-3 items-center  cursor-pointer" onClick={handleOpen}>
           <BiSolidUserCircle className="text-4xl md:text-5xl" />
