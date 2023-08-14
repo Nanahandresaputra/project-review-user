@@ -8,7 +8,6 @@ const Review = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   let posisi = localStorage.getItem("namaForum");
-
   return (
     <section className="mt-32 mb-10 flex justify-center">
       <div className="w-11/12 lg:w-9/12 space-y-4 lg:space-y-7 max-w-[1920px]">

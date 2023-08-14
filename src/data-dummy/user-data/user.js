@@ -22,7 +22,7 @@ const userData = [
     foto: "https://media.licdn.com/dms/image/C4D03AQGB6sbQ021QFw/profile-displayphoto-shrink_800_800/0/1555008139032?e=2147483647&v=beta&t=fi_F_NF7sZXlL7nOlehHgKDMJjfFlsBZIseFzTDnCLU",
   },
   {
-    id: "2",
+    id: 2,
     nama: "ferdinand",
     password: "ferdinand123",
     email: "ferdinand123@gmail.com",

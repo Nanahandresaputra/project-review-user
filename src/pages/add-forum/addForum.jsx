@@ -9,6 +9,7 @@ import ilustrationForum from "../../assets/ilustration/add-forum.svg";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addForum } from "../../app/redux/forum/action";
+import swal from "sweetalert";
 
 const AddForum = () => {
   const schemaValidation = yup.object().shape({
@@ -25,11 +26,9 @@ const AddForum = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    // localStorage.setItem("forum", JSON.stringify(data));
     dispatch(addForum(data));
-    alert("forum telah ditambahkan");
+    swal("Berhasil!", "Forum Telah Ditambahkan!", "success");
     navigate("/");
-    console.log(data);
   };
 
   const [increment, setIncrement] = useState(1);
@@ -52,7 +51,7 @@ const AddForum = () => {
   };
 
   return (
-    <section className=" flex justify-center items-center mt-32">
+    <section className="mb-10 flex justify-center items-center mt-32">
       <div className="lg:grid lg:grid-cols-2 lg:w-10/12 2xl:w-9/12">
         <div className="hidden lg:flex items-center justify-center">
           <img src={ilustrationForum} alt="login image" className="w-[400] h-[500px] 2xl:w-[500px] 2xl:h-[600px]" />
@@ -65,15 +64,15 @@ const AddForum = () => {
             <InputText label="Nama forum" type="text" register={register} name="nama_forum" errors={errors.nama_forum?.message} errorStyle={errors.nama_forum ? "text-red-500" : "hidden"} />
             <div>
               <div className="flex justify-between items-center">
-                <h1 className="font-semibold ">Tambah pertanyaan</h1>
-                <button type="button" className="btn btn-info text-white md:text-xl w-32" onClick={handleAdd}>
+                <h1 className="md:text-xl 2xl:text-xl">Tambah pertanyaan</h1>
+                <button type="button" className="btn btn-info btn-sm md:btn-md w-20 text-white md:text-xl md:w-32" onClick={handleAdd}>
                   +
                 </button>
               </div>
               <div className="flex space-x-5">
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   {fields?.map((index) => (
-                    <div key={index} className="flex space-x-3 items-center">
+                    <div key={index} className="flex space-x-5 items-center">
                       <InputText type="text" register={register} name={`pertanyaan${index}`} />
                       <button type="button" className="btn btn-error text-white md:text-xl" onClick={() => handleRemove(index)}>
                         X

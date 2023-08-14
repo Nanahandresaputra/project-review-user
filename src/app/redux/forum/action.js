@@ -1,5 +1,5 @@
-import { createForum, getDetailForum, getListFroum } from "../../api/api";
-import { GET_LIST_FORUM, GET_DETAIL_FORUM, CREATE_FORUM } from "./constant";
+import { createForum, deleteForum, getDetailForum, getListFroum } from "../../api/api";
+import { GET_LIST_FORUM, GET_DETAIL_FORUM, CREATE_FORUM, REMOVE_FORUM } from "./constant";
 
 export const getForumList = () => {
   return (dispatch) => {
@@ -28,6 +28,17 @@ export const addForum = (data) => {
     createForum(data).then((res) =>
       dispatch({
         type: CREATE_FORUM,
+        payload: res.data,
+      })
+    );
+  };
+};
+
+export const removeForum = (id) => {
+  return (dispatch) => {
+    deleteForum(id).then((res) =>
+      dispatch({
+        type: REMOVE_FORUM,
         payload: res.data,
       })
     );

@@ -1,10 +1,18 @@
 /** @format */
 
 import { useNavigate } from "react-router-dom";
+import userData from "../../data-dummy/user-data/user";
 
 const Table = ({ user }) => {
   const navigate = useNavigate();
   let posisi = localStorage.getItem("namaForum");
+  let userId = localStorage.getItem("auth");
+
+  const handleReview = (reviewId) => {
+    userData[userId].role != "manajer" ? navigate(`review/${reviewId}/quesioner/${reviewId}`) : navigate(`review/${reviewId}`);
+  };
+
+  let reviewed = JSON.parse(localStorage.getItem("reviewed"));
 
   return (
     <section className="overflow-x-auto flex justify-center w-full">
@@ -29,8 +37,8 @@ const Table = ({ user }) => {
                 <td>{item.posisi === "" ? posisi : item.posisi}</td>
                 <td>{item.score}</td>
                 <td>
-                  <button type="button" className="btn btn-info btn-xs md:btn-sm lg:btn-md text-white lg:w-32" onClick={() => navigate(`review/${item.id}`)}>
-                    Review
+                  <button type="button" className="btn btn-info btn-xs md:btn-sm lg:btn-md text-white lg:w-32" onClick={() => handleReview(item.id)}>
+                    {reviewed?.find((id) => parseInt(id) === item.id) ? "Edit Review" : "Review"}
                   </button>
                 </td>
               </tr>

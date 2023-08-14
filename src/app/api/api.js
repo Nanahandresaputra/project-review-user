@@ -13,7 +13,11 @@ export const getDetailForum = async () => {
 };
 
 export const createForum = async (data) => {
-  console.log(data);
   const forum = await axios.post(`${config.baseUrl}/${config.forumUrl}`, data);
   return forum;
 };
+
+export const deleteForum = async (id) => {
+  const forum = await axios.delete(`${config.baseUrl}/${config.forumUrl}/${id}`);
+  return forum;
+}

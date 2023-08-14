@@ -56,7 +56,7 @@ const Register = () => {
               <InputText label="reveral" type="text" register={register} name="reveral" errors={errors.reveral?.message} errorStyle={errors.reveral ? "text-red-500" : "hidden"} />
               <label className="flex flex-col space-y-2 md:space-y-4 md:col-span-2">
                 <span className="md:text-xl">foto</span>
-                <input type="file" className="file-input file-input-bordered w-full max-w-xs" {...register("foto")} />
+                <input type="file" className="file-input file-input-bordered w-full" {...register("foto")} />
                 <span className={errors.foto ? "text-red-500" : "hidden"}>{errors.foto?.message}</span>
               </label>
             </div>

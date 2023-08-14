@@ -6,6 +6,7 @@ import ListSelect from "./listSelect";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { detailForum } from "../../app/redux/forum/action";
+import swal from "sweetalert";
 
 const Quesioner = () => {
   const { id } = useParams();
@@ -16,11 +17,14 @@ const Quesioner = () => {
   useEffect(() => {
     dispatch(detailForum());
   }, [dispatch]);
-
   const navigate = useNavigate();
 
   const handleSend = () => {
-    alert("Terimakasih telah memberikan review");
+    let values = JSON.parse(localStorage.getItem("reviewed")) || [];
+    values.indexOf(id) === -1 ? values.push(id) : null;
+    localStorage.setItem("reviewed", JSON.stringify(values));
+
+    swal("Terimakasih Atas Reviewnya!", `Anda telah menambahkan review untuk ${userData[id].nama}`, "success");
     navigate(-1);
   };
 
@@ -33,7 +37,7 @@ const Quesioner = () => {
         </h1>
       </div>
 
-      <form action="" className="border-2 rounded mx-3 p-6 space-y-5 md:space-y-8 flex flex-col 2xl:p-16 lg:w-[800px]">
+      <form action="" className="border-2 rounded mx-3 p-6 space-y-5 md:space-y-8 flex flex-col 2xl:p-16 2xl:w-[800px]">
         <ul className="list-decimal text-sm space-y-4">
           {forumDetail.pertanyaan0 ? (
             <li className="text-justify space-y-3 md:text-lg">
@@ -107,7 +111,7 @@ const Quesioner = () => {
         </ul>
         <label className="flex flex-col space-y-3">
           <span>Komentar</span>
-          <textarea className="textarea textarea-bordered" placeholder="Berikan komentar"></textarea>
+          <textarea className="textarea textarea-bordered" placeholder="Komentar..."></textarea>
         </label>
         <button type="button" className="btn btn-info btn-xs md:btn-sm md:w-36 text-white" onClick={handleSend}>
           Kirim

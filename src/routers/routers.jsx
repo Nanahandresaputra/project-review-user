@@ -11,6 +11,7 @@ import Navbar from "../components/navbar/navbar";
 import PrivateRouter from "./privateRouter";
 import Group from "../pages/group/group";
 import AddForum from "../pages/add-forum/addForum";
+import AuthPageRouter from "./authPageRouter";
 
 const Routers = () => {
   return (
@@ -26,8 +27,22 @@ const Routers = () => {
           }
         />
 
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        <Route
+          path="login"
+          element={
+            <AuthPageRouter>
+              <Login />
+            </AuthPageRouter>
+          }
+        />
+        <Route
+          path="register"
+          element={
+            <AuthPageRouter>
+              <Register />
+            </AuthPageRouter>
+          }
+        />
         <Route
           path="forum/:id/review/:id"
           element={
