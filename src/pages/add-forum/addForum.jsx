@@ -27,7 +27,7 @@ const AddForum = () => {
   const onSubmit = (data) => {
     // localStorage.setItem("forum", JSON.stringify(data));
     dispatch(addForum(data));
-    alert("forum telah ditambahkan");
+    swal("Berhasil!", "Forum Telah Ditambahkan!", "success");
     navigate("/");
   };
 
@@ -90,9 +90,9 @@ const AddForum = () => {
                 </button>
               </div>
               <div className='flex space-x-5'>
-                <div className='flex flex-col'>
+                <div className='flex flex-col w-full'>
                   {fields?.map((index) => (
-                    <div key={index} className='flex space-x-3 items-center'>
+                    <div key={index} className='flex space-x-5 items-center'>
                       <InputText
                         type='text'
                         register={register}

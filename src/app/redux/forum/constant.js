@@ -1,3 +1,4 @@
 export const GET_LIST_FORUM = "GET_LIST_FORUM";
 export const GET_DETAIL_FORUM = "GET_DETAIL_FORUM";
 export const CREATE_FORUM = "CREATE_FORUM";
+export const REMOVE_FORUM = "REMOVE_FORUM";

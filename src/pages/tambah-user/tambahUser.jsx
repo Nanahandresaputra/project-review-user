@@ -1,7 +1,6 @@
 /** @format */
 
 import ilustrationUser from "../../assets/ilustration/adduser.svg";
-import FormAddQuesionare from "./formAddQuesionare";
 import FormAddUser from "./formAddUser";
 
 const TambahUser = () => {

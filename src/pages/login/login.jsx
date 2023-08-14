@@ -27,6 +27,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    console.log(data);
     let userLogin = userData.find(
       (user) => data.email === user.email && data.password === user.password
     );

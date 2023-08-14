@@ -6,6 +6,7 @@ import ListSelect from "./listSelect";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { detailForum } from "../../app/redux/forum/action";
+import swal from "sweetalert";
 
 const Quesioner = () => {
   const { id } = useParams();
@@ -18,7 +19,11 @@ const Quesioner = () => {
   }, [dispatch]);
   const navigate = useNavigate();
   const handleSend = () => {
-    alert("Terimakasih atas review nya");
+    swal(
+      "Terimakasih Atas Reviewnya!",
+      `Anda telah menambahkan review untuk ${userData[id].nama}`,
+      "success"
+    );
     navigate(-1);
   };
 

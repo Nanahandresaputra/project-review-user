@@ -4,7 +4,7 @@ import React from "react";
 
 const InputText = ({ type, label, register, name, errors, errorStyle }) => {
   return (
-    <label className='flex flex-col space-y-2 md:space-y-5'>
+    <label className='flex flex-col space-y-2 md:space-y-5 w-full'>
       <span className='md:text-xl 2xl:text-xl'>
         {label}
         {/* <span className='text-red-500'>*</span> */}

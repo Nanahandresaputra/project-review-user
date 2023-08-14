@@ -4,6 +4,7 @@ import InputText from "../../components/input-text/inputText";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
 
 const FormAddUser = () => {
   const schemaValidation = yup.object().shape({
@@ -17,8 +18,12 @@ const FormAddUser = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schemaValidation) });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit = () => {
+    // data
+    swal("Berhasil!", "User Baru Telah Ditambahkan!", "success");
+    navigate(-1);
   };
   return (
     <form
