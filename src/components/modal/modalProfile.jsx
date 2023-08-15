@@ -11,6 +11,8 @@ const ModalProfile = () => {
     swal("Berhasil!", "Data berhasil diedit!", "success");
   };
 
+  let posisi = localStorage.getItem("namaForum");
+
   return (
     <dialog id='my_modal_17' className='modal'>
       <form method='dialog' className='modal-box'>
@@ -32,18 +34,9 @@ const ModalProfile = () => {
             className={
               "input input-bordered w-full md:text-xl 2xl:input-group-lg  2xl:text-xl"
             }
-            defaultValue={userData[id].posisi}
-          />
-        </label>
-
-        <label className='flex flex-col space-y-2 md:space-y-5 w-full'>
-          <span className='md:text-xl 2xl:text-xl'>Email</span>
-          <input
-            type='email'
-            className={
-              "input input-bordered w-full md:text-xl 2xl:input-group-lg  2xl:text-xl"
+            defaultValue={
+              userData[id].posisi != "manajer" ? posisi : userData[id].posisi
             }
-            defaultValue={userData[id].email}
           />
         </label>
 
