@@ -72,13 +72,15 @@ const Table = ({ user }) => {
                       ? "Edit Review"
                       : "Review"}
                   </button>
-                  <button
-                    type='button'
-                    className='btn btn-error text-white w-full md:w-auto  btn-xs md:btn-sm lg:btn-md'
-                    onClick={() => handleRemove(item.nama)}
-                  >
-                    <BsFillTrash3Fill />
-                  </button>
+                  {userData[userId].role != "manajer" ? null : (
+                    <button
+                      type='button'
+                      className='btn btn-error text-white w-full md:w-auto  btn-xs md:btn-sm lg:btn-md'
+                      onClick={() => handleRemove(item.nama)}
+                    >
+                      <BsFillTrash3Fill />
+                    </button>
+                  )}
                 </td>
               </tr>
             );
