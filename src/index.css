@@ -12,11 +12,6 @@
 
 @layer utilities {
   .bg-black-opacity {
-    background: rgb(2, 0, 36);
-    background: radial-gradient(
-      circle,
-      rgba(2, 0, 36, 0.5830707282913166) 100%,
-      rgba(213, 213, 213, 0) 100%
-    );
+    background: rgba(0, 0, 0, 0.5);
   }
 }

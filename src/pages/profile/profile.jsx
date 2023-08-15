@@ -1,8 +1,10 @@
 /** @format */
 
+import ModalProfile from "../../components/modal/modalProfile";
 import Reviewer from "../../components/reviewer/reviewer";
 // import { useNavigate, useParams } from "react-router-dom";
 import userData from "../../data-dummy/user-data/user";
+import { PiNotePencilFill } from "react-icons/pi";
 
 const Profile = () => {
   const id = localStorage.getItem("auth");
@@ -20,14 +22,22 @@ const Profile = () => {
             />
 
             <div>
-              <h1 className='font-semibold text-lg md:text-xl 2xl:text-3xl'>
-                {userData[id].nama}
+              <h1 className='flex space-x-3 items-center font-semibold text-lg md:text-xl 2xl:text-3xl'>
+                <span>{userData[id].nama}</span>{" "}
+                <PiNotePencilFill
+                  className='2xl:text-4xl text-gray-500 cursor-pointer'
+                  onClick={() => window.my_modal_17.showModal()}
+                />
               </h1>
               <p className='text-sm text-gray-500 md:text-base 2xl:text-xl'>
                 {userData[id].posisi === "" ? posisi : userData[id].posisi}
               </p>
+              <p className='text-sm text-gray-500 md:text-base 2xl:text-xl'>
+                {userData[id].email}
+              </p>
             </div>
           </div>
+          <ModalProfile />
 
           <div className='text-lg md:text-xl 2xl:text-2xl font-semibold flex flex-col items-center'>
             <h1>Score</h1>
