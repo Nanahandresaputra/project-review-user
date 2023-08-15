@@ -44,3 +44,10 @@ export const removeForum = (id) => {
     );
   };
 };
+
+export const onClose = (close) => {
+  return {
+    type: 'close',
+    payload: close
+  }
+}

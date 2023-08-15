@@ -12,6 +12,7 @@ import PrivateRouter from "./privateRouter";
 import Group from "../pages/group/group";
 import AddForum from "../pages/add-forum/addForum";
 import AuthPageRouter from "./authPageRouter";
+import Profile from "../pages/profile/profile";
 
 const Routers = () => {
   return (
@@ -19,7 +20,7 @@ const Routers = () => {
       <Navbar />
       <Routes>
         <Route
-          path="forum/:id"
+          path='forum/:id'
           element={
             <PrivateRouter>
               <Forum />
@@ -28,7 +29,7 @@ const Routers = () => {
         />
 
         <Route
-          path="login"
+          path='login'
           element={
             <AuthPageRouter>
               <Login />
@@ -36,7 +37,7 @@ const Routers = () => {
           }
         />
         <Route
-          path="register"
+          path='register'
           element={
             <AuthPageRouter>
               <Register />
@@ -44,7 +45,7 @@ const Routers = () => {
           }
         />
         <Route
-          path="forum/:id/review/:id"
+          path='forum/:id/review/:id'
           element={
             <PrivateRouter>
               <Review />
@@ -52,7 +53,7 @@ const Routers = () => {
           }
         />
         <Route
-          path="tambah-user"
+          path='tambah-user'
           element={
             <PrivateRouter>
               <TambahUser />
@@ -60,7 +61,7 @@ const Routers = () => {
           }
         />
         <Route
-          path="forum/:id/review/:id/quesioner/:id"
+          path='forum/:id/review/:id/quesioner/:id'
           element={
             <PrivateRouter>
               <Quesioner />
@@ -68,7 +69,7 @@ const Routers = () => {
           }
         />
         <Route
-          path="/"
+          path='/'
           element={
             <PrivateRouter>
               <Group />
@@ -76,10 +77,18 @@ const Routers = () => {
           }
         />
         <Route
-          path="tambah-forum"
+          path='tambah-forum'
           element={
             <PrivateRouter>
               <AddForum />
+            </PrivateRouter>
+          }
+        />
+        <Route
+          path='profile'
+          element={
+            <PrivateRouter>
+              <Profile />
             </PrivateRouter>
           }
         />

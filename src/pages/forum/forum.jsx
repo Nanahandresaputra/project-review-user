@@ -6,11 +6,14 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import userData from "../../data-dummy/user-data/user";
 import { useDispatch, useSelector } from "react-redux";
-import { detailForum } from "../../app/redux/forum/action";
+import { detailForum, onClose } from "../../app/redux/forum/action";
+
+import Modal from "../../components/modal/modal";
+// import FormAddUser from "../tambah-user/formAddUser";
 
 const Forum = () => {
   const navigate = useNavigate();
-  const { forumDetail } = useSelector((state) => state.forum);
+  const { forumDetail, close } = useSelector((state) => state.forum);
 
   const [query, setQuery] = useState("");
   const [user, setUser] = useState(userData);
@@ -36,12 +39,15 @@ const Forum = () => {
     localStorage.setItem("forumId", id);
     dispatch(detailForum(id));
     localStorage.setItem("namaForum", forumDetail.nama_forum);
-  }, [dispatch, query, id, forumDetail.nama_forum]);
+  }, [dispatch, query, id, forumDetail.nama_forum, close]);
 
   let forumName = localStorage.getItem("namaForum");
 
   return (
     <section className='w-full flex justify-center'>
+      <div className='absolute flex justify-center items-center h-screen w-screen'>
+        {close === true ? <Modal /> : null}{" "}
+      </div>
       <div className='relative  mt-28 mb-16 mx-3 space-y-5 flex flex-col items-center md:w-9/12 md:space-y-7 2xl:space-y-10 max-w-[1920px]'>
         <div className='flex justify-between items-center w-full lg:w-9/12'>
           <div>
@@ -51,10 +57,20 @@ const Forum = () => {
             <p className='text-sm md:text-base text-gray-500'>{forumName}</p>
           </div>
           {userData[userId].role != "manajer" ? null : (
+            // <button
+            //   type='button'
+            //   className='btn btn-info text-white btn-sm md:btn-md 2xl:btn-lg'
+            //   onClick={() => navigate("/tambah-user")}
+            // >
+            //   Tambah User +
+            // </button>
+
             <button
               type='button'
               className='btn btn-info text-white btn-sm md:btn-md 2xl:btn-lg'
-              onClick={() => navigate("/tambah-user")}
+              onClick={() => {
+                dispatch(onClose(true));
+              }}
             >
               Tambah User +
             </button>
