@@ -1,7 +1,7 @@
 /** @format */
 
 import { BiSolidUserCircle } from "react-icons/bi";
-
+import userData from "../../data-dummy/user-data/user";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { TfiArrowCircleLeft } from "react-icons/tfi";
@@ -27,8 +27,8 @@ const Navbar = () => {
       </div>
       <div className="relative flex flex-col items-center">
         <div className="flex space-x-3 items-center  cursor-pointer" onClick={handleOpen}>
-          <BiSolidUserCircle className="text-4xl md:text-5xl" />
-          <p className="hidden md:block font-medium md:text-xl lg:text-2xl">User</p>
+          {id ? <img src={userData[id].foto} alt="foro user" className="w-16 h-16 rounded-full" /> : <BiSolidUserCircle className="text-4xl md:text-5xl" />}
+          <p className="hidden md:block font-medium md:text-xl lg:text-2xl">{id ? userData[id].nama : null}</p>
         </div>
 
         <div
